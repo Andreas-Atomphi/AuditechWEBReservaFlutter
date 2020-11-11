@@ -82,7 +82,7 @@ extension MapSpreadWidget on Map<String, String> {
   }
 }
 
-class CardPaciente extends Card {
+class CardPaciente extends StatelessWidget {
   final EdgeInsets padding;
   final NovidadesPaciente usuarioEsta;
   final Icon icone;
