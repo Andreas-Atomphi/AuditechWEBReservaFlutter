@@ -13,7 +13,22 @@ class _SPrincipal extends State<Principal> {
             alignment: Alignment(-0.9, 0),
             child: Text("Auditech"),
           ),
-          actions: [],
+          actions: [
+            Container(
+              width: kToolbarHeight,
+              height: kToolbarHeight,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(100),
+                ),
+              ),
+              child: Icon(
+                Icons.person,
+                size: 35,
+              ),
+            ),
+          ],
         ),
         body: Stack(
           children: [
