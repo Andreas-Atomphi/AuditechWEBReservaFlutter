@@ -4,6 +4,7 @@ import 'package:flutterweb/Telas/Principal/Pacientes/components.dart';
 class _SPacientes extends State<Pacientes> {
   @override
   Widget build(BuildContext context) {
+    double _crossAxisSpacing = 20;
     NovidadesPaciente statusPaciente = NovidadesPaciente.NOVO;
     bool statusTexto = statusPaciente.status;
     String statusUsuario = {
@@ -16,8 +17,11 @@ class _SPacientes extends State<Pacientes> {
         body: Container(
           padding: EdgeInsets.all(50),
           child: GridView.extent(
-            crossAxisSpacing: 20,
-            maxCrossAxisExtent: 255,
+            physics: PageScrollPhysics(),
+            childAspectRatio: 0.85,
+            crossAxisSpacing: _crossAxisSpacing,
+            maxCrossAxisExtent: 200,
+            mainAxisSpacing: _crossAxisSpacing,
             children: [
               CardPaciente(
                 usuarioEsta: statusPaciente,
