@@ -1,3 +1,4 @@
+import 'package:auditech_web/mainData.dart';
 import 'package:flutter/material.dart';
 import 'package:auditech_web/Telas/Principal/Pacientes/components.dart';
 
@@ -13,7 +14,7 @@ class _SPacientes extends State<Pacientes> {
     }[statusTexto];
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: primary.subRGB(22),
         body: Container(
           padding: EdgeInsets.all(50),
           child: GridView.extent(
@@ -24,6 +25,9 @@ class _SPacientes extends State<Pacientes> {
             mainAxisSpacing: _crossAxisSpacing,
             children: [
               CardPaciente(
+                aoClicar: () {
+                  print("paciente");
+                },
                 usuarioEsta: statusPaciente,
                 title: "AAAAAAAA",
                 dados: {

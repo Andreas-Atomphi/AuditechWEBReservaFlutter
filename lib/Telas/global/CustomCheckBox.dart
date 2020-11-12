@@ -15,13 +15,12 @@ class StatelessCheckBox extends StatelessWidget {
     return CheckboxListTile(
       value: checked,
       activeColor: Colors.blue,
-      controlAffinity: ListTileControlAffinity.platform,
+      controlAffinity: ListTileControlAffinity.trailing,
       onChanged: onChanged,
       title: Text(
         text,
         style: TextStyle(
           fontSize: 20,
-          fontFamily: "OpenSans",
         ),
       ),
     );

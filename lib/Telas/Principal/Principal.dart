@@ -1,3 +1,4 @@
+import 'package:auditech_web/Telas/Principal/componentes/components.dart';
 import 'package:flutter/material.dart';
 import 'package:auditech_web/Telas/telas.dart';
 import 'package:auditech_web/mainData.dart';
@@ -5,28 +6,23 @@ import 'package:auditech_web/mainData.dart';
 class _SPrincipal extends State<Principal> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: primary,
           title: Align(
-            alignment: Alignment(-0.9, 0),
+            alignment: Alignment(-0.95, 0),
             child: Text("Auditech"),
           ),
           actions: [
-            Container(
-              width: kToolbarHeight,
-              height: kToolbarHeight,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(100),
-                ),
-              ),
-              child: Icon(
-                Icons.person,
-                size: 35,
-              ),
+            UserButton(
+              backgroundColor: Colors.cyan[800],
+              foregroundColor: Colors.white,
+              raio: kToolbarHeight - 10,
+              aoPressionar: () {
+                print("pressionado");
+              },
             ),
           ],
         ),
@@ -37,30 +33,35 @@ class _SPrincipal extends State<Principal> {
               child: Container(
                 margin: EdgeInsets.zero,
                 padding: EdgeInsets.zero,
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height,
+                width: size.width * 0.3,
+                height: size.height,
                 child: Column(
                   children: [
                     Container(
                       width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.45,
+                      height: (size.height * 0.45) - kToolbarHeight,
                       color: primary,
                       child: Image.asset("assets/images/Logo_02.jpg"),
                     ),
                     Container(
                       color: Colors.cyan[700],
-                      height: MediaQuery.of(context).size.height * 0.474,
                       width: double.infinity,
-                    )
+                      height: (size.height * 0.55),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
             Positioned(
-              left: MediaQuery.of(context).size.width * 0.3,
+              left: size.width * 0.3,
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: MediaQuery.of(context).size.height,
+                width: size.width * 0.7,
+                height: size.height,
                 child: MaterialApp(
                   debugShowCheckedModeBanner: false,
                   routes: insideRoutes,

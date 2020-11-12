@@ -66,10 +66,10 @@ class _SInicio extends State<Inicio> {
                 child: Column(
                   children: [
                     Spacer(
-                      flex: 8,
+                      flex: 5,
                     ),
                     Align(
-                      alignment: Alignment(-0.65, 0),
+                      alignment: Alignment(-0.0, 0),
                       child: Text(
                         "Login",
                         style: TextStyle(
@@ -79,36 +79,79 @@ class _SInicio extends State<Inicio> {
                       ),
                     ),
                     Spacer(
-                      flex: 2,
+                      flex: 4,
                     ),
-                    TextFieldLogin("Digite seu código", false, TipoEntrada.COD),
-                    SizedBox(
-                      height: 20,
+                    Align(
+                      alignment: Alignment(-0.85, 0),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
                     ),
-                    TextFieldLogin("Digite sua senha", true, TipoEntrada.PSSWD),
-                    Spacer(
-                      flex: 1,
+                    TextFieldLogin(
+                        "Insira seu código de acesso", false, TipoEntrada.COD),
+                    Align(
+                      alignment: Alignment(-0.725, 0),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          "Não compartilhe seu código com ninguém.",
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 17,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(-0.85, 0),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          "Senha",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ),
+                    TextFieldLogin("Insira sua senha", true, TipoEntrada.PSSWD),
+                    Align(
+                      alignment: Alignment(-0.725, 0),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          "Não compartilhe sua senha com ninguém.",
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 17,
+                            fontFamily: "OpenSans",
+                          ),
+                        ),
+                      ),
                     ),
                     AlignedButton(
-                      alignment: Alignment(0.65, 0),
+                      alignment: Alignment(0.80, 0),
                       color: Colors.lightBlue[700],
                       textColor: Colors.white,
                       padding: EdgeInsets.all(15),
                       text: "Entrar",
                       aoPressionar: entrar,
                     ),
-                    SizedBox(
-                      height: 15,
-                    ),
                     Align(
-                      alignment: Alignment(0.65, 0),
+                      alignment: Alignment(0.80, 0),
                       child: LinkButton(
                         text: "Esqueci minha senha",
                         aoPressionar: () {},
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0.65, 0),
+                      alignment: Alignment(0.80, 0),
                       child: SizedBox(
                         width: 250,
                         child: StatelessCheckBox(

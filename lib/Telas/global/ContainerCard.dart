@@ -7,6 +7,7 @@ class ContainerCard extends StatelessWidget {
   final BorderRadius borderRadius;
   final Widget header, title;
   final List<Widget> body;
+  final List<BoxShadow> boxShadow;
 
   ContainerCard({
     this.padding,
@@ -15,6 +16,7 @@ class ContainerCard extends StatelessWidget {
     this.foregroundColor = Colors.black,
     this.body,
     this.header,
+    this.boxShadow,
     this.title,
     this.borderRadius = const BorderRadius.all(Radius.circular(15)),
   });
@@ -27,6 +29,7 @@ class ContainerCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: borderRadius,
         color: backgroundColor,
+        boxShadow: boxShadow,
       ),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,

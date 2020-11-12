@@ -18,14 +18,14 @@ class TextFieldLogin extends StatelessWidget {
     textfield = TextField(
       style: TextStyle(
         color: Colors.black,
-        fontSize: 25,
+        fontSize: 20,
       ),
       controller: myController,
       enableSuggestions: false,
       autocorrect: false,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(0),
         ),
         fillColor: Colors.white,
         filled: true,
