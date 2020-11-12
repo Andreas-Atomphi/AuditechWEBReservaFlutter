@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterweb/Telas/Inicio/Componentes/components.dart';
-import 'package:flutterweb/Telas/global/CustomCheckBox.dart';
-import 'package:flutterweb/Telas/global/LinkButton.dart';
-import 'package:flutterweb/mainData.dart';
+import 'package:auditech_web/Telas/Inicio/Componentes/components.dart';
+import 'package:auditech_web/Telas/global/CustomCheckBox.dart';
+import 'package:auditech_web/Telas/global/LinkButton.dart';
+import 'package:auditech_web/mainData.dart';
 import 'Componentes/TextField.dart';
 
 class _SInicio extends State<Inicio> {

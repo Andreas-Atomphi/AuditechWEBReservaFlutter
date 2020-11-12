@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterweb/Telas/Principal/Pacientes/components.dart';
+import 'package:auditech_web/Telas/Principal/Pacientes/components.dart';
 
 class _SPacientes extends State<Pacientes> {
   @override

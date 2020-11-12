@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterweb/Telas/telas.dart';
-import 'package:flutterweb/mainData.dart';
+import 'package:auditech_web/Telas/telas.dart';
+import 'package:auditech_web/mainData.dart';
 
 class _SPrincipal extends State<Principal> {
   @override

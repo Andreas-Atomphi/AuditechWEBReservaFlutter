@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterweb/Telas/telas.dart';
+import 'package:auditech_web/Telas/telas.dart';
 
 Color primary = Color.fromRGBO(22, 71, 85, 1);
 Color secondary = Color.fromRGBO(40, 53, 103, 1);

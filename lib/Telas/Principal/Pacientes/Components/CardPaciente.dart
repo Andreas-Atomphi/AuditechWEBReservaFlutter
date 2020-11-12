@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterweb/Telas/global/components.dart';
+import 'package:auditech_web/Telas/global/components.dart';
 
 enum NovidadesPaciente {
   NORMAL,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterweb/mainData.dart';
+import 'package:auditech_web/mainData.dart';
 import 'Telas/telas.dart';
 
 void main() {
