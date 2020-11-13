@@ -130,19 +130,15 @@ class _SCardPaciente extends State<CardPaciente> {
     void hover(bool c) {
       setState(
         () {
-          myShadow = (c)
-              ? BoxShadow(
-                  color: Colors.black.withOpacity(0.65),
-                  blurRadius: 2.5,
-                  offset: Offset(7, 7),
-                )
-              : BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
-                  blurRadius: 5,
-                  offset: Offset(5, 5),
-                );
+          if (c)
+            myShadow = BoxShadow(
+              color: Colors.black,
+              blurRadius: 3,
+              offset: Offset(3, 3),
+            );
         },
       );
+      if (!c) normal();
     }
 
     return InkWell(
