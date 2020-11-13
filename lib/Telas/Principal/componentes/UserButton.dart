@@ -10,6 +10,8 @@ class UserButton extends InkWell {
     this.backgroundColor,
     this.foregroundColor,
   }) : super(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
           borderRadius: BorderRadius.all(Radius.circular(100)),
           onTap: aoPressionar,
           child: Align(

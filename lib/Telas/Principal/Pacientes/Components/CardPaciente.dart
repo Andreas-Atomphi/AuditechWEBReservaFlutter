@@ -73,16 +73,6 @@ extension ValuesPaciente on NovidadesPaciente {
   }
 }
 
-extension MapSpreadWidget on Map<String, String> {
-  List<Widget> mapToWidget(Widget f(String key, String value)) {
-    List<Widget> toReturn = [];
-    for (int i = 0; i < this.length; i++) {
-      toReturn.add(f(this.keys.elementAt(i), this.values.elementAt(i)));
-    }
-    return toReturn;
-  }
-}
-
 class _SCardPaciente extends State<CardPaciente> {
   BoxShadow myShadow = BoxShadow(
     color: Colors.black.withOpacity(0.5),
@@ -118,37 +108,60 @@ class _SCardPaciente extends State<CardPaciente> {
         () {
           myShadow = BoxShadow(
             color: Colors.black.withOpacity(0.5),
-            blurRadius: 0,
+            blurRadius: 5,
             offset: Offset(0, 0),
           );
         },
       );
     }
 
+    void normal() {
+      setState(
+        () {
+          myShadow = BoxShadow(
+            color: Colors.black.withOpacity(0.5),
+            blurRadius: 0,
+            offset: Offset(5, 5),
+          );
+        },
+      );
+    }
+
+    void hover(bool c) {
+      setState(
+        () {
+          myShadow = (c)
+              ? BoxShadow(
+                  color: Colors.black.withOpacity(0.65),
+                  blurRadius: 2.5,
+                  offset: Offset(7, 7),
+                )
+              : BoxShadow(
+                  color: Colors.black.withOpacity(0.5),
+                  blurRadius: 5,
+                  offset: Offset(5, 5),
+                );
+        },
+      );
+    }
+
     return InkWell(
+      splashColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTapDown: (c) {
         press();
+      },
+      onTap: () {
+        press();
+        if (widget.aoClicar != null) widget.aoClicar();
       },
       onHover: (c) {
         setState(
           () {
-            myShadow = (c)
-                ? BoxShadow(
-                    color: Colors.black.withOpacity(0.65),
-                    blurRadius: 2.5,
-                    offset: Offset(7, 7),
-                  )
-                : BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 5,
-                    offset: Offset(5, 5),
-                  );
+            hover(c);
           },
         );
-      },
-      onTap: () {
-        press();
-        widget.aoClicar();
       },
       child: ContainerCard(
         boxShadow: [

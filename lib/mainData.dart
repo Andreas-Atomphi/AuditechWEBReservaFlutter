@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auditech_web/Telas/telas.dart';
+import 'Telas/Principal/Perfil/States/states.dart';
 
 extension ColorFormula on Color {
   Color sumRGB(int sumnum) {
@@ -130,4 +131,20 @@ Map<String, Widget Function(BuildContext context)> insideRoutes =
     <String, WidgetBuilder>{
   "pacientes": (context) => Pacientes(),
   "principal": (context) => Principal(),
+  "perfil-profissional": (context) => Perfil(
+        perfil: SPerfilProfissional(),
+      ),
+  "perfil-paciente": (context) => Perfil(
+        perfil: SPerfilPaciente(),
+      ),
 };
+
+extension MapSpreadWidget on Map<String, String> {
+  List<Widget> mapToWidget(Widget f(String key, String value)) {
+    List<Widget> toReturn = [];
+    for (int i = 0; i < this.length; i++) {
+      toReturn.add(f(this.keys.elementAt(i), this.values.elementAt(i)));
+    }
+    return toReturn;
+  }
+}

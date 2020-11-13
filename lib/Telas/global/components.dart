@@ -5,3 +5,4 @@ export 'LinkButton.dart';
 export 'FormatoTexto.dart';
 export 'ContainerCard.dart';
 export 'Paciente.dart';
+export 'DefaultAppBar.dart';

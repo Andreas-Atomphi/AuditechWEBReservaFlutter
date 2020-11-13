@@ -1,4 +1,6 @@
+import 'package:auditech_web/Telas/Principal/Perfil/States/StateProfissional.dart';
 import 'package:auditech_web/Telas/Principal/componentes/components.dart';
+import 'package:auditech_web/Telas/global/DefaultAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:auditech_web/Telas/telas.dart';
 import 'package:auditech_web/mainData.dart';
@@ -9,22 +11,15 @@ class _SPrincipal extends State<Principal> {
     Size size = MediaQuery.of(context).size;
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: primary,
-          title: Align(
-            alignment: Alignment(-0.95, 0),
-            child: Text("Auditech"),
-          ),
-          actions: [
-            UserButton(
-              backgroundColor: Colors.cyan[800],
-              foregroundColor: Colors.white,
-              raio: kToolbarHeight - 10,
-              aoPressionar: () {
-                print("pressionado");
-              },
+        appBar: DefaultAppBar(
+          aoPressionar: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Perfil(
+                perfil: SPerfilProfissional(),
+              ),
             ),
-          ],
+          ),
         ),
         body: Stack(
           children: [
