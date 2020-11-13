@@ -17,9 +17,15 @@ class SPerfilProfissional extends State<Perfil> {
   var enderecoController = TextEditingController();
   var numController = TextEditingController();
   var complementoController = TextEditingController();
+  List<String> lastValues;
+  bool editing = false;
 
   @override
   Widget build(BuildContext context) {
+    void sair() {
+      Navigator.of(context).pop();
+    }
+
     Size size = MediaQuery.of(context).size;
 
     List<FieldWTitle> fields = [
@@ -27,45 +33,69 @@ class SPerfilProfissional extends State<Perfil> {
         title: "Nome",
         width: size.width * 0.25,
         controller: nomeController,
+        ativado: editing,
       ),
       FieldWTitle(
         title: "ID",
         width: size.width * 0.25,
         controller: idController,
+        ativado: editing,
       ),
       FieldWTitle(
         title: "CPF",
         width: size.width * 0.25,
         controller: cpfController,
+        ativado: editing,
       ),
       FieldWTitle(
         title: "Clínica",
         width: size.width * 0.25,
         controller: clinicaController,
+        ativado: editing,
       ),
       FieldWTitle(
         title: "Endereço",
         width: size.width * 0.45,
         controller: enderecoController,
+        ativado: editing,
       ),
       FieldWTitle(
         title: "Nº",
         width: size.width * 0.05,
         controller: numController,
+        ativado: editing,
       ),
       FieldWTitle(
         title: "Complemento",
         width: size.width * 0.10,
         controller: complementoController,
+        ativado: editing,
       ),
     ];
+
+    lastValues = [
+      ...fields.map(
+        (f) => f.value,
+      ),
+    ];
+
+    void cancelar() {
+      for (int i = 0; i < fields.length; i++) {
+        fields[i].value = lastValues[i];
+      }
+      setState(
+        () {
+          editing = false;
+        },
+      );
+    }
 
     return MaterialApp(
       home: Scaffold(
         backgroundColor: primary.subRGB(30),
         appBar: DefaultAppBar(
           leading: BackButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: sair,
           ),
         ),
         body: Stack(
@@ -84,6 +114,18 @@ class SPerfilProfissional extends State<Perfil> {
                 ),
                 child: Column(
                   children: [
+                    Container(
+                      child: Text(
+                        "Seus dados",
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Spacer(
+                      flex: 1,
+                    ),
                     Container(
                       child: Row(
                         children: [
@@ -175,9 +217,61 @@ class SPerfilProfissional extends State<Perfil> {
                         ],
                       ),
                     ),
-                    FlatButton(
-                      onPressed: () {},
-                      child: Text("Entrar"),
+                    Spacer(
+                      flex: 1,
+                    ),
+                    Row(
+                      children: [
+                        Spacer(
+                          flex: 1,
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(right: 5),
+                          child: FlatButton(
+                            height: 50,
+                            child: Text(
+                              (editing) ? "Cancelar" : "Voltar",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            color: Colors.teal[500],
+                            onPressed: (editing)
+                                ? () => cancelar()
+                                : () {
+                                    sair();
+                                  },
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: 5),
+                          child: FlatButton(
+                            height: 50,
+                            child: Text(
+                              (editing) ? "Salvar" : "Editar",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            color: Colors.orange,
+                            onPressed: (editing)
+                                ? () {
+                                    setState(
+                                      () {
+                                        editing = false;
+                                      },
+                                    );
+                                  }
+                                : () {
+                                    setState(
+                                      () {
+                                        editing = true;
+                                      },
+                                    );
+                                  },
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
