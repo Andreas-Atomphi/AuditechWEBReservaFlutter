@@ -12,6 +12,14 @@ class FieldWTitle extends StatelessWidget {
     this.ativado = true,
     this.dica,
   });
+  String get value {
+    return controller.text;
+  }
+
+  set value(String text) {
+    controller.text = text;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
