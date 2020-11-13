@@ -26,7 +26,15 @@ class _SPacientes extends State<Pacientes> {
             children: [
               CardPaciente(
                 aoClicar: () {
-                  print("paciente");
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return Dialog(
+                        backgroundColor: Colors.white,
+                        child: Container(),
+                      );
+                    },
+                  );
                 },
                 usuarioEsta: statusPaciente,
                 title: "AAAAAAAA",
